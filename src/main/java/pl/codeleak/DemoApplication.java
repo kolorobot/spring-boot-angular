@@ -14,7 +14,6 @@ public class DemoApplication {
 
     @Controller
     public static class Routes {
-        /* index.html is served by Thymeleaf and classpath:/static/ is switched off. See application.properties */
         @RequestMapping("/")
         public String index() {
             return "index";
