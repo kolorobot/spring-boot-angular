@@ -15,7 +15,7 @@
           rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link th:href="@{/assets/main.css}"
+    <link th:href="${@mvcResourceUrlProvider.getForLookupPath('/assets/main.css')}"
           href="css/main.css"
           rel="stylesheet">
 
@@ -67,20 +67,22 @@
     <div ng-include="'tpl/footer.tpl.html'"></div>
 </footer>
 
-<script th:src="@{/webjars/jquery/2.2.0/dist/jquery.min.js}"
+<!--/* org.webjars:webjars-locator allows shorter paths */-->
+
+<script th:src="@{/webjars/jquery/dist/jquery.min.js}"
         src="//cdn.jsdelivr.net/webjars/org.webjars.bower/jquery/2.2.0/dist/jquery.min.js"
         type="text/javascript"></script>
-<script th:src="@{/webjars/bootstrap/3.3.6/dist/js/bootstrap.min.js}"
+<script th:src="@{/webjars/bootstrap/bootstrap.min.js}"
         src="http://cdn.jsdelivr.net/webjars/org.webjars.bower/bootstrap/3.3.6/dist/js/bootstrap.min.js"
         type="text/javascript"></script>
-<script th:src="@{/webjars/angular/1.5.0/angular.min.js}"
+<script th:src="@{/webjars/angular/angular.min.js}"
         src="//cdn.jsdelivr.net/webjars/org.webjars.bower/angular/1.5.0/angular.min.js"
         type="text/javascript"></script>
-<script th:src="@{/webjars/angular-ui-router/0.2.18/release/angular-ui-router.min.js}"
+<script th:src="@{/webjars/angular-ui-router/angular-ui-router.min.js}"
         src="//cdn.jsdelivr.net/webjars/org.webjars.bower/angular-ui-router/0.2.18/release/angular-ui-router.min.js"
         type="text/javascript"></script>
 
-<!--// Used only for static prototyping //-->
+<!--/* Used only for static prototyping */-->
 <script th:remove="all" src="js/app.js" type="text/javascript"></script>
 <script th:remove="all" src="js/HomeCtrl.js" type="text/javascript"></script>
 

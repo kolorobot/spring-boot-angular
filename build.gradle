@@ -39,12 +39,32 @@ dependencies {
         exclude module: 'jquery'
     }
     compile('org.webjars.bower:jquery:2.2.0')
+    /* Allows to write version agnostic paths in templates, like <script src="/jquery/jquery.min.js"/>. */
+    /* See org.springframework.web.servlet.resource.WebJarsResourceResolver */
+    compile('org.webjars:webjars-locator:0.30')
 
     /* Wro4j - optimizer */
     compile('ro.isdc.wro4j:wro4j-core:1.7.9')
     compile('ro.isdc.wro4j:wro4j-extensions:1.7.9')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.assertj:assertj-core:3.3.0')
+}
+
+processResources {
+    /* Apply filtering only to application.properties to not corrupt binary file (e.g. fonts, docx) during this phase */
+    filesMatching('application.properties') {
+        filter org.apache.tools.ant.filters.ReplaceTokens, tokens: [
+                /* Run the build with -PactiveProfiles to set active profiles in application.properties */
+                activeProfiles: project.getProperties().containsKey('activeProfiles') ? project.property('activeProfiles') : ''
+        ]
+    }
+}
+
+bootRun {
+    // It is for running application with profiles
+    // e.g. gradle bootRun -Dspring.profiles.active=embedded,basic
+    systemProperties = System.properties
 }
 
 task wrapper(type: Wrapper) {
