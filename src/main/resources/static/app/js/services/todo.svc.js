@@ -4,17 +4,31 @@
 
     angular
         .module('app')
-        .factory('TodoService', ['$state', '$http', '$window', TodoService]);
+        .factory('TodoService', ['$http', '$window', TodoService]);
 
-    function TodoService($state, $http, $window) {
+    function TodoService($http, $window) {
 
         return {
-            addTodoItem: addTodoItem
+            getAll: getAll,
+            getTodo: getTodo,
+            addTodo: addTodo,
+            updateTodo: updateTodo
         };
 
-        function addTodoItem() {
-            var data = {};
-            return $http.post(getBaseUrl() + '/todo', data);
+        function getAll() {
+            return $http.get(getBaseUrl() + '/todo');
+        }
+
+        function getTodo(id) {
+            return $http.get(getBaseUrl() + '/todo/' + id);
+        }
+
+        function addTodo(todo) {
+            return $http.put(getBaseUrl() + '/todo', todo);
+        }
+
+        function updateTodo(id, todo) {
+            return $http.get(getBaseUrl() + '/todo/' + id, todo);
         }
 
         function getBaseUrl() {

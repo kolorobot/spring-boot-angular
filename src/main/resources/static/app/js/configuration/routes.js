@@ -15,19 +15,19 @@
                 url: '/home',
                 templateUrl: 'tpl/home.tpl.html',
                 controller: 'HomeCtrl',
-                controllerAs: 'ctrl'
+                controllerAs: 'vm'
             })
             .state('todo', {
                 url: '/todo',
                 templateUrl: 'tpl/todo.tpl.html',
-                controller: 'AboutCtrl',
-                controllerAs: 'ctrl'
+                controller: 'TodoCtrl',
+                controllerAs: 'vm'
             })
             .state('about', {
                 url: '/about',
                 templateUrl: 'tpl/about.tpl.html',
                 controller: 'AboutCtrl',
-                controllerAs: 'ctrl'
+                controllerAs: 'vm'
             });
     }
 })();
