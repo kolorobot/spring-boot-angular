@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <title>Spring Boot Angular</title>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/main.css" rel="stylesheet">
+
+</head>
+
+<body role="application">
+
+<main class="container" role="main">
+    <header class="page-header bg-header navbar" ng-include="'app/layout/navbar.tpl.html'"></header>
+    <div class="page-content">
+        <div ui-view></div>
+    </div>
+    <footer>
+        <div ng-include="'app/layout/footer.tpl.html'"></div>
+    </footer>
+</main>
+
+<script src="lib/jquery/dist/jquery.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+
+<!-- Modules -->
+<script src="app/app.module.js"></script>
+<script src="app/layout/layout.module.js"></script>
+<script src="app/home/home.module.js"></script>
+<script src="app/about/about.module.js"></script>
+<script src="app/todo/todo.module.js"></script>
+
+<!-- Controllers -->
+<script src="app/home/home.ctrl.js"></script>
+<script src="app/about/about.ctrl.js"></script>
+<script src="app/todo/todo.ctrl.js"></script>
+
+<!-- Services -->
+<script src="app/todo/todo.svc.js"></script>
+
+<!-- Directives -->
+<script src="app/layout/page-header.dir.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "name": "spring-boot-angular",
+  "version": "1.0.0",
+  "description": "Spring Boot + Angular with TypeScript and Gulp",
+  "scripts": {
+    "clean": "gulp clean",
+    "compile": "gulp compile",
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "server": "concurrent --kill-others \"gulp watch\" \"lite-server\"",
+    "postinstall": "typings install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kolorobot/spring-boot-angular.git"
+  },
+  "author": "Rafał Borowiec",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kolorobot/sprig-boot-angular/issues"
+  },
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.1"
+  },
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^4.3.3",
+    "gulp-typescript": "^2.12.0",
+    "lite-server": "^2.1.0",
+    "tslint": "^3.5.0",
+    "typescript": "^1.8.2",
+    "typings": "^0.6.8"
+  }
+}
