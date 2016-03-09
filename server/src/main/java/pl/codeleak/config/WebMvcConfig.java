@@ -1,11 +1,7 @@
 package pl.codeleak.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -30,24 +26,24 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     }
 }
 
-@Configuration
-@Profile(Profiles.DEV)
-class DevelopmentResourcesConfig extends WebMvcConfigurerAdapter {
-
-    private static final Logger LOG = LoggerFactory.getLogger(DevelopmentResourcesConfig.class);
-
-    @Value("${appHome:}")
-    private String appHome;
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        if (this.appHome.isEmpty()) {
-            LOG.warn("Development profile is active, but no appPath property is set!");
-        } else {
-            LOG.info("\n\nDevelopment mode. Activating resources from '{}'\n\n", appHome);
-            registry.addResourceHandler("/**")
-                    .addResourceLocations("file:///" + this.appHome + "/client/build/")
-                    .setCachePeriod(0);
-        }
-    }
-}
+//@Configuration
+//@Profile(Profiles.DEV)
+//class DevelopmentResourcesConfig extends WebMvcConfigurerAdapter {
+//
+//    private static final Logger LOG = LoggerFactory.getLogger(DevelopmentResourcesConfig.class);
+//
+//    @Value("${project.root:}")
+//    private String projectRoot;
+//
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        if (this.projectRoot.isEmpty()) {
+//            LOG.warn("Development profile is active, but no project.root property is set!");
+//        } else {
+//            LOG.info("\n\nDevelopment mode. Activating resources from '{}'\n\n", projectRoot);
+//            registry.addResourceHandler("/**")
+//                    .addResourceLocations("file:///" + this.projectRoot + "/client/build/")
+//                    .setCachePeriod(0);
+//        }
+//    }
+//}

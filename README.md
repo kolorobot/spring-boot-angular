@@ -32,13 +32,15 @@ Note: Make sure `client/build` directory exists. This directory will be used to 
 
 - Run the application in development mode
 
-> gradlew clean bootRun -Dspring.profiles.active=dev -DappHome=<path/to/project>
+> gradlew clean bootRun -Dspring.profiles.active=dev -Dproject.root=<path/to/project>
 
 - Navigate to `http://localhost:8080` 
 
 Changes in the `client/build` directory will be available instantly. Simply refresh the browser.
 
 ## Resources reloading
+
+### Client
 
 Spring Boot application, in development mode, maps resources from `client/build` directory.
 So every change in this directory is available in the Backend. If you wish to make changes
@@ -48,3 +50,18 @@ and run `watch` to watch for changes made in the client code:
 >  npm run watch
 
 Now you can freely modify `client/src` files and see them instantly in the Spring Boot application.
+
+See `application-dev.properties`.
+
+### Thymeleaf
+
+Thymeleaf templates are located in `server/src/main/resources/templates` and in development mode they can be instantly
+reloaded. See `application-dev.properties`.
+
+## Thymeleaf in IntelliJ
+
+To preview Thymeleaf templates using IntelliJ, open direct link to the template:
+
+- Open Thymeleaf template (e.g. `error.html`)
+- Select `Web Preview` action (`Alt + F2`)
+- Hold `Shift` and select the browser
