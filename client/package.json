@@ -29,6 +29,7 @@
     "concurrently": "^2.0.0",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
+    "gulp-ng-annotate": "^2.0.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-tslint": "^4.3.3",
     "gulp-typescript": "^2.12.0",

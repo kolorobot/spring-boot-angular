@@ -20,7 +20,7 @@ namespace app.todo {
 
     export class TodoService {
 
-        static $inject = ['$http', '$window'];
+        /*@ngInject*/
         constructor(private $http:IHttpService, private $window:IWindowService) {
 
         }
@@ -56,5 +56,5 @@ namespace app.todo {
 
     angular
         .module('app.todo')
-        .service('TodoService', TodoService);
+        .service('todoService', TodoService);
 }

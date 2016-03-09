@@ -1,11 +1,12 @@
 "use strict";
 
-let gulp = require("gulp");
-let del = require("del");
-let tsc = require("gulp-typescript");
-let sourcemaps = require('gulp-sourcemaps');
-let tsProject = tsc.createProject("tsconfig.json");
-let tslint = require('gulp-tslint');
+const gulp = require("gulp");
+const del = require("del");
+const tsc = require("gulp-typescript");
+const sourcemaps = require('gulp-sourcemaps');
+const tsProject = tsc.createProject("tsconfig.json");
+const tslint = require('gulp-tslint');
+const ngAnnotate = require('gulp-ng-annotate');
 
 /**
  * Remove build directory.
@@ -31,6 +32,7 @@ gulp.task("compile", ["tslint"], () => {
         .pipe(sourcemaps.init())
         .pipe(tsc(tsProject));
     return tsResult.js
+        .pipe(ngAnnotate())
         .pipe(sourcemaps.write("."))
         .pipe(gulp.dest("build"));
 });

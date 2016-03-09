@@ -4,15 +4,10 @@ namespace app.todo {
 
         todos:ITodo[] = null;
 
-        static $inject = ['TodoService'];
-
+        /*@ngInject*/
         constructor(private todoService:TodoService) {
             todoService.getAll().then(response => {
                 this.todos = response.data;
-            }).catch(response => {
-                this.todos = [
-                    new Todo(1, "Get the milk", false)
-                ];
             });
         }
     }

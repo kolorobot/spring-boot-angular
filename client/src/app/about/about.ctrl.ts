@@ -6,5 +6,5 @@ namespace app.about {
 
     angular
         .module('app')
-        .controller("app.AboutCtrl", AboutCtrl);
+        .controller("AboutCtrl", AboutCtrl);
 }
